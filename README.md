@@ -5,4 +5,4 @@ This will have:
   - Power Ups
   - Damage Control
   - Pixel Art
-  - Survival Game to find a Sword
+  - Survival game to find a Sword
