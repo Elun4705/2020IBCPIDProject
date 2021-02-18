@@ -8,3 +8,22 @@ This will have:
   - Survival game to find a Sword
 
 ![alt text](https://github.com/Elun4705/2020IBCPIDProject/blob/main/RPGTest.png)
+
+Plan
+- Physics Processor 2D implementation (Movement)
+- Delta (Creates smooth movement)
+- Collsions and Move&Slide for borders hitboxes that will be added eventually
+- Create scene/mainClass for the starting "Main" world. Think of it as a main class. Also Y-sort added for organization on display
+- Animations added with animation player (Up  Down Left Right)
+- Background added
+- Collisions with background "hills"
+- Attacking animation added and state machine/switchStatement
+- Signals and instancing scenes in the main scene
+- Hurtboxes and hitboxes added to enemies/grass so far
+- Rolling state
+- Enemies added knockback for bat
+- Enemy stats, export variables (inherited classes and variables)
+- Enemy death effect
+- Maintainace + bug fixes
+- Bat IA
+- Player stats added + Enemy attack + Player heart UI
