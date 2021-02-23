@@ -11,3 +11,5 @@ Feb 17 1:14PM, 2021 - Internal Assesment Log 4
 - I cleaned up some of the code so as to use more inheritance with other scripts. Mainly used in the effects now, as the class/script can be used for ANY effects in the game. But the cost is minor, as I won't be able to use signals.
 Feb 17 2:48PM, 2021 - Internal Assesment Log 5
 - Added AI to the bat for chasing the player
+Feb 22 , 2021 - Internal Assesment Log 6
+- Added Player Heart UI and Trees(Ohh! SO speacial)
