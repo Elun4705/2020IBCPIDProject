@@ -3,8 +3,8 @@ extends Control
 var hearts = 4 setget set_hearts
 var max_hearts = 4 setget set_max_hearts
 
-""" The onready allowa it so that the vars can be used outside 
-of stats and use elsewhere """
+# The onready allowa it so that the vars can be used outside 
+# of stats and use elsewhere
 onready var heartUIFull = $HeartUIFull
 onready var heartUIEmpty = $HeartUIEmpty
 
@@ -23,5 +23,7 @@ func set_max_hearts(value):
 func _ready():
 	self.max_hearts = PlayerStats.max_health
 	self.hearts = PlayerStats.health
+	# warning-ignore:return_value_discarded
 	PlayerStats.connect("health_changed", self, "set_hearts")
+	# warning-ignore:return_value_discarded
 	PlayerStats.connect("max_health_changed", self, "set_max_hearts")

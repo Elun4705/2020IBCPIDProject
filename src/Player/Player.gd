@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
-""" This makes it possible so the number can be changed while debugging """
+const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
+
+# This makes it possible so the number can be changed while debugging
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var ROLL_SPEED = 120
 export var FRICTION = 500
 
-""" Starts 'switch' like operation"""
+# Starts 'switch' like operation
 enum {
 	MOVE,
 	ROLL,
@@ -23,16 +25,18 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitbox = $HitBoxPivot/SwordHitBox
 onready var hurtbox = $HurtBox
+onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
-	""" Connects the stats to the rest of the objects inside Player """
+	randomize()
+	# Connects the stats to the rest of the objects inside Player
 	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 
 func _physics_process(delta):
-	""" Works as a switch statement, but works as an abstarct class 
-	too as the code is being written on another line """
+	# Works as a switch statement, but works as an abstarct class 
+	# too as the code is being written on another line
 	match state:
 		MOVE:
 			move_state(delta)
@@ -48,7 +52,7 @@ func move_state(delta):
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
 	
-	""" This is where the animation is placed so that it matches the movement """
+	# This is where the animation is placed so that it matches the movement
 	if input_vector != Vector2.ZERO:
 		roll_vector = input_vector
 		swordHitbox.knockback_vector = input_vector
@@ -89,7 +93,15 @@ func attack_animation_finished():
 func roll_animation_finished():
 	state = MOVE
 
-func _on_HurtBox_area_entered(_area):
-	stats.health -= 1
-	hurtbox.start_invincibilty(0.5)
+func _on_HurtBox_area_entered(area):
+	stats.health -= area.damage
+	hurtbox.start_invincibilty(0.6)
 	hurtbox.create_hit_effect()
+	var playerHurtSound = PlayerHurtSound.instance()
+	get_tree().current_scene.add_child(playerHurtSound)
+
+func _on_HurtBox_invincibility_started():
+	blinkAnimationPlayer.play("Start")
+
+func _on_HurtBox_invincibility_ended():
+	blinkAnimationPlayer.play("Stop")

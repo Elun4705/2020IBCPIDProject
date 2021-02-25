@@ -3,9 +3,9 @@ extends Control
 var hearts = 4 setget set_hearts
 var max_hearts = 4 setget set_max_hearts
 
-""" Sets it so that it doesn;t require Player Stats or stats but it's 
-preferable, in addition can be used in other new classes that could 
-be made """
+# Sets it so that it doesn;t require Player Stats or stats but it's 
+# preferable, in addition can be used in other new classes that could 
+# be made
 onready var heartUIFull = $HeartUIEmpty
 onready var heartUIEmpty = $HeartUIEmpty
 

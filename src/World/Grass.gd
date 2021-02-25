@@ -4,7 +4,7 @@ const GrassEffect = preload("res://Effects/GrassEffect.tscn")
 
 func create_grass_effect():
 		var grassEffect = GrassEffect.instance()
-		""" Parent class here works as the 'main' class """
+		# Parent class here works as the 'main' class
 		get_parent().add_child(grassEffect)
 		grassEffect.global_position = global_position
 
