@@ -27,3 +27,8 @@ Plan
 - Maintainace + bug fixes
 - Bat IA
 - Player stats added + Enemy attack + Player heart UI
+- I needed a way to added arrays, and a way I did was by adding soft collisions to the enemy. *
+- Player Camera
+- Enemy Wander state
+- Additional sounds + Camera Limits
+- Musical Ascept Added
